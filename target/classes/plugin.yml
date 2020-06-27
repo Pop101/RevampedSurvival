@@ -1,0 +1,6 @@
+name: RevampedSurvival
+main: com.SketchyPlugins.AdvancedCombat.Main
+version: 0.0.1
+api-version: 1.13
+author: Mr.Random
+description: Adds several new tools and survival mechanics

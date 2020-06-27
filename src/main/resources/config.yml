@@ -1,0 +1,382 @@
+# ------------------------------------------------------------ #
+#                   Revamped Survival Config!
+# 
+#        Toggle all unwanted features quickly and easily!
+#       Just remember to use /reload to apply all changes.
+# ------------------------------------------------------------ #
+
+Beds Explode: true
+Exploding Beds Set Spawnpoint: true
+Bed Explosion Power: 3.0 # 4.0 is TNT
+Bed Explosion Napalm: false # Should the bed explosion create fire?
+
+Disable Hunger Mechanics: true
+Disable Passive Hunger Loss: true # Should hunger still be lost passively (only active when hunger is disabled) If you disable Passive Hunger Loss, eating "better" foods with more saturation becomes less important
+Healing Multiplier: 0.6 # "Conversion rate" of food to health
+Damage Multiplier: 1.0 # Hunger lost (from the "Hunger" potion effect) multiplied by this is health lost
+
+Enable Hit Grace Adjustment: true
+Hit Grace Time: 0.6 # How many seconds of invincibility entities and players get after being hit
+# Lowering hit grace should be done with caution: it multiplies suffocation damage
+
+Enable Spears: true
+Spear Range: 6.0 #How many blocks the spear reaches
+Spear Damage Multiplier: 0.7 #How much damage spears do in comparison to swords
+Spear Speed Multiplier: 0.7 #How fast spears are comparison to swords
+Spear Lore: Strike at great range #Description of spears. Used to recognize spears, so changing this forces players to re-craft
+
+Enable Hammers: true
+Hammer Damage Multiplier: 0.3 #How much damage hammers do in comparison to swords
+Hammer Speed Multiplier: 0.5 #How fast hammers are comparison to swords
+Hammer Armor Damage Multiplier: 4.5 #Bonus Armor damage
+Hammer Misuse Penalty: 5 #How much damage hammers take if no recipe is found
+Hammer Lore: Breaks down blocks<br>into less advanced forms<br><br>Deals additional damage to armor #Description of hammers. Used to recognize them, so changing this forces players to re-craft
+Hammer Recipes:
+   #General chain from most to least complex
+   STONE_BRICKS: CRACKED_STONE_BRICKS
+   CRACKED_STONE_BRICKS: SMOOTH_STONE
+   
+   MOSSY_STONE_BRICKS: MOSSY_STONE_BRICKS
+   MOSSY_CRACKED_STONE_BRICKS: 
+      Drops:
+         VINES: 1
+      Becomes: SMOOTH_STONE
+   
+   SMOOTH_STONE: COBBLESTONE
+   STONE: COBBLESTONE
+   STONE_SLAB: COBBLESTONE_SLAB
+   
+   #Cobblestone is hammered into gravel (stairs and slabs become flint)
+   COBBLESTONE: GRAVEL
+   COBBLESTONE_WALL: GRAVEL
+   COBBLESTONE_SLAB:
+      Drops:
+         FLINT: 1
+      Becomes: AIR
+   COBBLESTONE_STAIRS:
+      Drops:
+         FLINT: 1
+      Becomes: AIR
+   
+   #Gravel is hammered into flint and sand
+   GRAVEL:
+      Drops:
+         FLINT: 1
+      Becomes: SAND
+   
+   #Sandstone turns into its respective sand
+   SANDSTONE: SAND
+   SANDSTONE_WALL: SAND
+   RED_SANDSTONE: RED_SAND
+   RED_SANDSTONE_WALL: RED_SAND
+   
+   #Sand is hammered into nothing
+   SAND: AIR
+   RED_SAND: AIR
+   
+   
+   #Smash ores into stone
+   COAL_ORE:
+      Drops:
+         COAL: 2
+      Becomes: STONE
+      
+   IRON_ORE:
+      Drops:
+         IRON_ORE: 1
+         IRON_NUGGET: 2
+      Becomes: STONE
+   
+   GOLD_ORE:
+      Drops:
+         GOLD_ORE: 1
+         GOLD_NUGGET: 3
+      Becomes: STONE
+    
+   DIAMOND_ORE:
+      Drops:
+         DIAMOND: 2
+      Becomes: STONE
+      
+   EMERALD_ORE:
+      Drops:
+         EMERALD: 2
+      Becomes: STONE
+      
+   NETHER_QUARTZ_ORE:
+      Drops:
+         NETHER_QUARTZ: 3
+      Becomes: NETHERRACK
+   
+   #Smash TNT into its components
+   TNT:
+      Drops:
+         GUNPOWDER: 3
+         SAND: 3
+      Becomes: AIR
+   
+   #Smash cut sandstone into sandstone
+   CHISELED_SANDSTONE: CUT_SANDSTONE
+   CUT_SANDSTONE: SMOOTH_SANDSTONE
+   SMOOTH_SANDSTONE: SANDSTONE
+   SANDSTONE: SAND
+   
+   SMOOTH_SANDSTONE_STAIRS: SANDSTONE_STAIRS
+   CUT_SANDSTONE_SLAB: SANDSTONE_SLAB
+   SANDSTONE_SLAB:
+      Drops:
+         SAND: 1
+      Becomes: AIR
+   SANDSTONE_STAIRS:
+      Drops:
+         SAND: 1
+      Becomes: AIR
+   SANDSTONE_WALL:
+      Drops:
+         SAND: 1
+      Becomes: AIR
+   
+   CHISELED_SANDSTONE: CUT_SANDSTONE
+   CUT_SANDSTONE: SMOOTH_SANDSTONE
+   SMOOTH_SANDSTONE: SANDSTONE
+   SANDSTONE: SAND
+   
+   SMOOTH_RED_SANDSTONE_STAIRS: SANDSTONE_STAIRS
+   CUT_RED_SANDSTONE_SLAB: SANDSTONE_SLAB
+   RED_SANDSTONE_SLAB:
+      Drops:
+         RED_SAND: 1
+      Becomes: AIR
+   RED_SANDSTONE_STAIRS:
+      Drops:
+         RED_SAND: 1
+      Becomes: AIR
+   RED_SANDSTONE_WALL:
+      Drops:
+         RED_SAND: 1
+      Becomes: AIR
+      
+   #Nether recipes
+   RED_NETHER_BRICKS:
+      Drops:
+         NETHER_WART: 1
+      Becomes: NETHER_BRICKS
+   RED_NETHER_BRICK_WALL:
+      Drops:
+         NETHER_WART: 1
+      Becomes: NETHER_BRICK_WALL
+   RED_NETHER_BRICK_SLAB: NETHER_BRICK_SLAB
+   RED_NETHER_BRICK_STAIRS: NETHER_BRICK_STAIRS
+   
+   NETHER_BRICKS:
+      Drops:
+         NETHER_BRICK: 3
+      Becomes: AIR
+   NETHER_BRICK_WALL:
+      Drops:
+         NETHER_BRICK: 2
+      Becomes: AIR
+   NETHER_BRICK_STAIRS:
+      Drops:
+         NETHER_BRICK: 2
+      Becomes: AIR
+   NETHER_BRICK_SLAB:
+      Drops:
+         NETHER_BRICK: 1
+      Becomes: AIR
+      
+   #End Recipes
+   PURPUR_SLAB:
+      Drops:
+         POPPED_CHORUS_FRUIT: 1
+      Becomes: END_STONE_BRICK_SLAB
+   PURPUR_BLOCK:
+      Drops:
+         POPPED_CHORUS_FRUIT: 2
+      Becomes: END_STONE_BRICKS
+   PURPUR_STAIRS:
+      Drops:
+         POPPED_CHORUS_FRUIT: 1
+      Becomes: END_STONE_BRICK_STAIRS
+   PURPUR_PILLAR: PURPUR_BLOCK
+   END_STONE_BRICKS: END_STONE
+   END_STONE_BRICK_STAIRS: AIR
+   END_STONE_BRICK_SLAB: AIR
+   
+   
+   #Hammering logs and stripped logs drops 3 sticks and 3 planks
+   #Hammering wood/bark and stripped wood/bark drops 4 sticks and 3 planks
+   #Hammering stairs drops a stick and a slab
+   #Hammering slabs drops a stick
+   #Hammering leaves drops a stick
+   OAK_LOG:
+      Drops:
+         STICK: 3
+         OAK_PLANKS: 2
+      Becomes: OAK_PLANKS
+   OAK_WOOD:
+      Drops:
+         STICK: 4
+         OAK_PLANKS: 2
+      Becomes: OAK_PLANKS
+   STRIPPED_OAK_LOG:
+      Drops:
+         STICK: 3
+         OAK_PLANKS: 2
+      Becomes: OAK_PLANKS
+   STRIPPED_OAK_WOOD:
+      Drops:
+         STICK: 4
+         OAK_PLANKS: 2
+      Becomes: OAK_PLANKS
+   OAK_PLANKS:
+      Drops:
+         STICK: 3
+      Becomes: AIR
+   OAK_SLAB:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   OAK_STAIRS:
+      Drops:
+         STICK: 1
+      Becomes: OAK_SLAB
+   OAK_LEAVES:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   
+   DARK_OAK_LOG:
+      Drops:
+         STICK: 3
+         DARK_OAK_PLANKS: 2
+      Becomes: DARK_OAK_PLANKS
+   DARK_OAK_WOOD:
+      Drops:
+         STICK: 4
+         DARK_OAK_PLANKS: 2
+      Becomes: DARK_OAK_PLANKS
+   STRIPPED_DARK_OAK_LOG:
+      Drops:
+         STICK: 3
+         DARK_OAK_PLANKS: 2
+      Becomes: DARK_OAK_PLANKS
+   STRIPPED_DARK_OAK_WOOD:
+      Drops:
+         STICK: 4
+         OAK_PLANKS: 2
+      Becomes: DARK_OAK_PLANKS
+   DARK_OAK_SLAB:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   DARK_OAK_STAIRS:
+      Drops:
+         STICK: 1
+      Becomes: DARK_OAK_SLAB
+   DARK_OAK_LEAVES:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   
+   
+   ACACIA_LOG:
+      Drops:
+         STICK: 3
+         ACACIA_PLANKS: 2
+      Becomes: ACACIA_PLANKS
+   ACACIA_WOOD:
+      Drops:
+         STICK: 4
+         ACACIA_PLANKS: 2
+      Becomes: ACACIA_PLANKS
+   STRIPPED_ACACIA_LOG:
+      Drops:
+         STICK: 3
+         ACACIA_PLANKS: 2
+      Becomes: ACACIA_PLANKS
+   STRIPPED_ACACIA_WOOD:
+      Drops:
+         STICK: 4
+         ACACIA_PLANKS: 2
+      Becomes: ACACIA_PLANKS
+   ACACIA_SLAB:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   ACACIA_STAIRS:
+      Drops:
+         STICK: 1
+      Becomes: ACACIA_SLAB
+   ACACIA_LEAVES:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   
+   
+   JUNGLE_LOG:
+      Drops:
+         STICK: 3
+         JUNGLE_PLANKS: 2
+      Becomes: JUNGLE_PLANKS
+   JUNGLE_WOOD:
+      Drops:
+         STICK: 4
+         JUNGLE_PLANKS: 2
+      Becomes: JUNGLE_PLANKS
+   STRIPPED_JUNGLE_LOG:
+      Drops:
+         STICK: 3
+         JUNGLE_PLANKS: 2
+      Becomes: JUNGLE_PLANKS
+   STRIPPED_JUNGLE_WOOD:
+      Drops:
+         STICK: 4
+         JUNGLE_PLANKS: 2
+      Becomes: JUNGLE_PLANKS
+   JUNGLE_SLAB:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   JUNGLE_STAIRS:
+      Drops:
+         STICK: 1
+      Becomes: JUNGLE_SLAB
+   JUNGLE_LEAVES:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+      
+   SPRUCE_LOG:
+      Drops:
+         STICK: 3
+         SPRUCE_PLANKS: 2
+      Becomes: SPRUCE_PLANKS
+   SPRUCE_WOOD:
+      Drops:
+         STICK: 4
+         SPRUCE_PLANKS: 2
+      Becomes: SPRUCE_PLANKS
+   STRIPPED_SPRUCE_LOG:
+      Drops:
+         STICK: 3
+         SPRUCE_PLANKS: 2
+      Becomes: SPRUCE_PLANKS
+   STRIPPED_SPRUCE_WOOD:
+      Drops:
+         STICK: 4
+         SPRUCE_PLANKS: 2
+      Becomes: SPRUCE_PLANKS
+   SPRUCE_SLAB:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   SPRUCE_STAIRS:
+      Drops:
+         STICK: 1
+      Becomes: JUNGLE_SLAB
+   SPRUCE_LEAVES:
+      Drops:
+         STICK: 1
+      Becomes: AIR
+   

@@ -1,0 +1,14 @@
+com\SketchyPlugins\AdvancedCombat\libraries\ConfigManager.class
+com\SketchyPlugins\AdvancedCombat\libraries\tools\Spear.class
+com\SketchyPlugins\AdvancedCombat\libraries\tools\Hammer.class
+com\SketchyPlugins\AdvancedCombat\Listeners\HammerListener.class
+com\SketchyPlugins\AdvancedCombat\Listeners\HitGraceTimeListener.class
+com\SketchyPlugins\AdvancedCombat\libraries\HammerRecipe.class
+com\SketchyPlugins\AdvancedCombat\libraries\tools\ToolUtils.class
+com\SketchyPlugins\AdvancedCombat\Main.class
+com\SketchyPlugins\AdvancedCombat\libraries\RecipeManager$ExtendedRecipe.class
+com\SketchyPlugins\AdvancedCombat\Listeners\BedListener.class
+com\SketchyPlugins\AdvancedCombat\libraries\RecipeManager.class
+com\SketchyPlugins\AdvancedCombat\Listeners\HungerListener.class
+com\SketchyPlugins\AdvancedCombat\Listeners\SpearListener.class
+com\SketchyPlugins\AdvancedCombat\Listeners\HitGraceTimeListener$1.class
