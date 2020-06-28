@@ -1,6 +1,6 @@
 {
   "pack": {
     "pack_format": 4,
-    "description": "Makes the hunger bar invisible"
+    "description": "Makes the hunger bar invisible. Adds optifine-enabled hammers and spears"
   }
 }
