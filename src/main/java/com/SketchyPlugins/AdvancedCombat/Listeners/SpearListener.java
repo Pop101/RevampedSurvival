@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -113,7 +114,14 @@ public class SpearListener implements Listener{
 		//damage the victim
 		if(found == null) return;
 		found.damage(damage, e.getPlayer());
-		if(!isInCreative(e.getPlayer())) damageItem(inHand, 1);
+		try{Bukkit.getPluginManager().callEvent(new EntityDamageByEntityEvent(e.getPlayer(), found, DamageCause.ENTITY_ATTACK, damage));} catch(IllegalStateException ex) {};
+		
+		//damage the spear
+		if(!isInCreative(e.getPlayer())) {
+			double odds = 1+inHand.getEnchantmentLevel(Enchantment.DURABILITY);
+			if(Math.random() < 1/odds)
+				damageItem(inHand, 1);
+		}
 	}
 	@EventHandler
 	public void hitEvent(EntityDamageByEntityEvent e) {

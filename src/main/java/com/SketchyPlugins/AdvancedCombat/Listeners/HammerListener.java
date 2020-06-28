@@ -125,6 +125,7 @@ public class HammerListener implements Listener{
 		
 	}
 	public void damageItem(ItemStack tool, int toDamage) {
+		if(tool == null) return;
 		if(!(tool.getItemMeta() instanceof Damageable)) return;
 		
         Damageable itemdmg = (Damageable) tool.getItemMeta();

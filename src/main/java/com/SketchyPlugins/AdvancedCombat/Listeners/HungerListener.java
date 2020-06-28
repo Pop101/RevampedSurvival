@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffectType;
@@ -34,12 +35,15 @@ public class HungerListener implements Listener{
 					plr.setFoodLevel(foodLevel);
 	}
 	@EventHandler
+	public void onPlayerSpawn(PlayerRespawnEvent e) {
+		e.getPlayer().setFoodLevel(foodLevel);
+	}
+	@EventHandler
 	public void onFoodChange(FoodLevelChangeEvent e) {
 		if(!ConfigManager.disableHunger) return;
 		if(!(e.getEntity() instanceof Player)) return;
 		//get change
 		int change = e.getFoodLevel() - ((Player) e.getEntity()).getFoodLevel();
-		Bukkit.getLogger().info("change is "+change);
 		if(change == 0) return;
 		
 		//check for passive hunger loss: any half-hunger lost while not under hunger effect
@@ -58,6 +62,7 @@ public class HungerListener implements Listener{
 		e.setFoodLevel(foodLevel);
 		//((Player) e.getEntity()).setFoodLevel(foodLevel);
 	}
+
 	
 	private int randomRound(double d) {
 		boolean isNegative = d < 0;
