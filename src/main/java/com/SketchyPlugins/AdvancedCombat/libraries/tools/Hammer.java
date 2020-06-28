@@ -22,7 +22,7 @@ import com.SketchyPlugins.AdvancedCombat.libraries.RecipeManager;
 public class Hammer{
 	public final String name;
 	public final ItemStack hammer;
-	private final String[] hammerRecipe = {"***"," * "," s "};
+	private final String[] hammerRecipe = {"***","*s*"," s "};
 	
 	/**
 	 * Constructs a hammer with a crafting material
@@ -57,8 +57,8 @@ public class Hammer{
 		hammerMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new AttributeModifier(UUID.randomUUID(), "HAMMER_DMG", damage, Operation.ADD_NUMBER,EquipmentSlot.HAND));
 		
 		//calculate and add speed mod
-		double speed = Math.max(ToolUtils.getDefaultItemSpeed(ToolUtils.getReference(referenceMat)), ToolUtils.getDefaultItemSpeed(referenceMat));
-		speed = speed*ConfigManager.hammerSpeed-4; //4 is the default swing speed
+		double speed = ToolUtils.getDefaultItemSpeed(ToolUtils.getReference(referenceMat));
+		speed = ((speed+4)*ConfigManager.hammerSpeed)-4; //4 is the default swing speed
 		
 		hammerMeta.removeAttributeModifier(Attribute.GENERIC_ATTACK_SPEED);
 		hammerMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, new AttributeModifier(UUID.randomUUID(), "HAMMER_SPD", speed, Operation.ADD_NUMBER,EquipmentSlot.HAND));

@@ -33,9 +33,10 @@ public class BedListener implements Listener{
 		e.getBed().getWorld().strikeLightningEffect(e.getBed().getLocation().add(0.5, 0.5, 0.5));
 		
 		//set spawnpoint
-		if(Con)
-		e.getPlayer().setBedSpawnLocation(e.getBed().getLocation().add(0.5, 0.5, 0.5), true);
-		e.getPlayer().sendMessage("Spawn Point Set");
+		if(ConfigManager.bedsSetSpawn) {
+			e.getPlayer().setBedSpawnLocation(e.getBed().getLocation().add(0.5, 0.5, 0.5), true);
+			e.getPlayer().sendMessage("Spawn Point Set");
+		}
 		
 		//cancel entering the bed
 		e.setUseBed(Result.DENY);

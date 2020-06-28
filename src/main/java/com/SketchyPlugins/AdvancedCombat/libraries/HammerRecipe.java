@@ -38,13 +38,22 @@ public class HammerRecipe {
 	public boolean canApplyRecipe(Block bl) {
 		return bl.getType() == source;
 	}
-	
 	/**
 	 * Applies the recipe after first checking if it can
-	 * @param bl
+	 * @param bl - The block to hammer
+	 * @param fortuneLevel - The level of fortune (affects drops)
 	 * @return If the block was successfully hammered
 	 */
 	public boolean applyRecipe(Block bl) {
+		return applyRecipe(bl, 0);
+	}
+	/**
+	 * Applies the recipe after first checking if it can
+	 * @param bl - The block to hammer
+	 * @param fortuneLevel - The level of fortune (affects drops)
+	 * @return If the block was successfully hammered
+	 */
+	public boolean applyRecipe(Block bl, int fortuneLevel) {
 		if(!canApplyRecipe(bl)) return false;
 		
 		final BlockState state = bl.getState();
@@ -52,8 +61,17 @@ public class HammerRecipe {
 			state.setType(destination);
 			state.update(true, true);
 			
-			for(ItemStack i : toDrop) //drop items
-				if(i != null) bl.getWorld().dropItemNaturally(bl.getLocation().add(0.5, 0.5, 0.5), i);
+			for(ItemStack i : toDrop) { //drop items
+				if(i == null) continue;
+				
+				int amount = i.getAmount();
+				for(int c = 0; c <= amount; c++)
+					if(Math.random() < 0.05*c) amount++;
+				ItemStack moddedAmount = i.clone();
+				moddedAmount.setAmount(Math.min(16, amount));
+				
+				bl.getWorld().dropItemNaturally(bl.getLocation().add(0.5, 0.5, 0.5), i);
+			}
 			return true;
 		}
 		catch(Exception e) { //errors out for several reasons, including not having access to the block
@@ -84,6 +102,15 @@ public class HammerRecipe {
 	 * @return If the block was successfully hammered
 	 */
 	public static boolean hammer(Block bl) {
+		return hammer(bl, 0);
+	}
+	/**
+	 * "Hammers" a block based on all registered recipes
+	 * @param bl - The block to hammer
+	 * @param fortune - The level of fortune (affects drops)
+	 * @return If the block was successfully hammered
+	 */
+	public static boolean hammer(Block bl, int fortune) {
 		//get a list of all recipes that can be applied
 		LinkedList<HammerRecipe> possible = new LinkedList<HammerRecipe>();
 		for(HammerRecipe hr : recipes)

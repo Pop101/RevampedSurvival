@@ -83,14 +83,12 @@ Hammer Recipes:
       
    IRON_ORE:
       Drops:
-         IRON_ORE: 1
-         IRON_NUGGET: 2
+         IRON_NUGGET: 7
       Becomes: STONE
    
    GOLD_ORE:
       Drops:
-         GOLD_ORE: 1
-         GOLD_NUGGET: 3
+         GOLD_NUGGET: 8
       Becomes: STONE
     
    DIAMOND_ORE:

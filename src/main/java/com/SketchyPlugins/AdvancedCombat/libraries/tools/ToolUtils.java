@@ -39,17 +39,17 @@ public class ToolUtils {
 		//sadly, default items must be hard-coded in from the base game
 		//this seems to be because they're not attribute modifiers and are nbt data instead
 		defaultItemStats = new HashMap<Material, HashMap<Attribute, Double>>();
-		setDefaultStat(Material.WOODEN_SWORD, 1.6, 4);
-		setDefaultStat(Material.GOLDEN_SWORD, 1.6, 4);
-		setDefaultStat(Material.STONE_SWORD, 1.6, 5);
-		setDefaultStat(Material.IRON_SWORD, 1.6, 6);
-		setDefaultStat(Material.DIAMOND_SWORD, 1.6, 7);
+		setDefaultStat(Material.WOODEN_SWORD, 1.6-4, 4);
+		setDefaultStat(Material.GOLDEN_SWORD, 1.6-4, 4);
+		setDefaultStat(Material.STONE_SWORD, 1.6-4, 5);
+		setDefaultStat(Material.IRON_SWORD, 1.6-4, 6);
+		setDefaultStat(Material.DIAMOND_SWORD, 1.6-4, 7);
 		
-		setDefaultStat(Material.WOODEN_AXE, 0.8, 7);
-		setDefaultStat(Material.GOLDEN_AXE, 1.0, 7);
-		setDefaultStat(Material.STONE_AXE, 0.8, 9);
-		setDefaultStat(Material.IRON_AXE, 0.9, 9);
-		setDefaultStat(Material.DIAMOND_AXE, 1.0, 9);
+		setDefaultStat(Material.WOODEN_AXE, 0.8-4, 7);
+		setDefaultStat(Material.GOLDEN_AXE, 1.0-4, 7);
+		setDefaultStat(Material.STONE_AXE, 0.8-4, 9);
+		setDefaultStat(Material.IRON_AXE, 0.9-4, 9);
+		setDefaultStat(Material.DIAMOND_AXE, 1.0-4, 9);
 		
 		setDefaultStat(Material.WOODEN_HOE, -3, 1);
 		setDefaultStat(Material.GOLDEN_HOE, -3, 1);
@@ -109,7 +109,7 @@ public class ToolUtils {
 		return capitalizeFirst(out);
 	}
 	public static String capitalizeFirst(String str) {
-		if(str.length() < 1) {
+		if(str.length() > 1) {
 			return str.substring(0,1).toUpperCase()+str.substring(1,str.length());
 		}else {
 			return str.toUpperCase();

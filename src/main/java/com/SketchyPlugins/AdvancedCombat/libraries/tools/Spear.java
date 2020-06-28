@@ -22,7 +22,7 @@ import com.SketchyPlugins.AdvancedCombat.libraries.RecipeManager;
 public class Spear{
 	public final String name;
 	public final ItemStack spear;
-	private final String[] spearRecipe = {"  *"," s ","s  "}; //S is string
+	private final String[] spearRecipe = {" * "," S "," s "};//{"  *"," s ","s  "}; //S is string
 	
 	/**
 	 * Constructs a spear with a crafting material
@@ -57,8 +57,8 @@ public class Spear{
 		spearMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new AttributeModifier(UUID.randomUUID(), "SPEAR_DMG", damage, Operation.ADD_NUMBER,EquipmentSlot.HAND));
 		
 		//calculate and add speed mod
-		double speed = Math.max(ToolUtils.getDefaultItemSpeed(ToolUtils.getReference(referenceMat)), ToolUtils.getDefaultItemSpeed(referenceMat));
-		speed = speed*ConfigManager.spearSpeed-4;
+		double speed = ToolUtils.getDefaultItemSpeed(ToolUtils.getReference(referenceMat));
+		speed = ((speed+4)*ConfigManager.hammerSpeed)-4;
 				
 		spearMeta.removeAttributeModifier(Attribute.GENERIC_ATTACK_SPEED);
 		spearMeta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, new AttributeModifier(UUID.randomUUID(), "SPEAR_SPD", speed, Operation.ADD_NUMBER,EquipmentSlot.HAND));
@@ -80,7 +80,7 @@ public class Spear{
 		recipe.shape(spearRecipe);
 		recipe.setIngredient('*', recipeMat);
 		recipe.setIngredient('s', Material.STICK);
-		//recipe.setIngredient('S', Material.STRING);
+		recipe.setIngredient('S', Material.STRING);
 		RecipeManager.registerRecipe(key, recipe);
 	}
 	

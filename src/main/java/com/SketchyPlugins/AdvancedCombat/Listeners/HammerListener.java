@@ -102,7 +102,7 @@ public class HammerListener implements Listener{
 		if(!isHammer) return;
 		
 		//attempt to hammer the block
-		boolean appliedRecipe = HammerRecipe.hammer(e.getBlock());
+		boolean appliedRecipe = HammerRecipe.hammer(e.getBlock(), inHand.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS));
 		
 		//if it succeeded, cancel the event and damage the hammer by 1 (take unbreaking into account)
 		if(appliedRecipe) {
